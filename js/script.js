@@ -57,7 +57,8 @@ function drawChart(phy, men, int, today){
                     barMargin: 0,
                     highlightMouseOver: false
                 },
-                color: 'lightgray'
+                color: 'lightgray',
+                shadow: false
             },
     		{
     			lineWidth:3,
