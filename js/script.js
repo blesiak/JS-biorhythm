@@ -3,7 +3,7 @@ function days(birthday){
 	var today = new Date();
 	today = today.valueOf();
 	return Math.floor((today - dayOfBirth)/86400000);
-}
+} 
 function condition(days, biorhythm, birthday, today){
 	var CON = new Array();
 	var DATES = new Array();
