@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Biorytm</title>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.0.js"></script>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+    <!-- Date Picker -->
+    <script src="js/jquery-birthday-picker.js"></script>
+
+    <!-- Chart -->
+    <script type="text/javascript" src="js/jquery.jqplot.min.js"></script>
+    <script type="text/javascript" src="js/jqplot.dateAxisRenderer.js"></script>
+    <script type="text/javascript" src="js/jqplot.barRenderer.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/jquery.jqplot.css">
+
+
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+  </head>
+  <body> 
+    <div class="container date_picker">
+      <h2 class="text-uppercase">Your biorhythm</h2>
+      <div id="birthdayPicker"></div>
+      <button type="button" class="btn btn-default" id="checkDate">Check</button>
+      <div id="error"></div>
+    </div>
+
+    <div class="container graph">
+      <div id="chart" class="jqplot-target"></div>
+      <div class="col-md-1"></div>
+      <div class="col-md-5 legend">
+        <span class="glyphicon glyphicon-stop legend-red" aria-hidden="true"> Physical condition</span><br>
+        <span class="glyphicon glyphicon-stop legend-green" aria-hidden="true"> Mental condition</span><br>
+        <span class="glyphicon glyphicon-stop legend-blue" aria-hidden="true"> Intelligence condition</span><br>
+      </div>        
+      <div class="col-md-5"></div>
+      <div class="col-md-1"></div>
+    </div>
+
+    <script type="text/javascript" src="js/script.js"></script>
+  </body>
+</html>

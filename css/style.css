@@ -1,0 +1,41 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
+body {
+	margin: 0 auto;
+	background: rgb(32, 32, 32);
+	background-size: cover;
+	font-family: 'Roboto', sans-serif;
+
+}
+.container {
+	background-color: #fff;
+	text-align: center;
+}
+.date_picker {
+	text-align: center;
+	background-color: #fff;
+}
+.date_picker div{
+	margin: 3vh 0; 
+}
+.graph {
+	padding: 10px;
+}
+#chart {
+	height: 60vh;
+}
+.legend {
+	text-align: left;
+	text-transform: uppercase;
+	margin-top: 20px;
+}
+.legend-red {
+	color: red;
+}
+.legend-green {
+	color: green;
+}
+.legend-blue {
+	color: blue;
+}
