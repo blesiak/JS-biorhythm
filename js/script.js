@@ -4,22 +4,22 @@ function days(birthday){
 	today = today.valueOf();
 	return Math.floor((today - dayOfBirth)/86400000);
 }
-function condition(days, biorhythm, birthday){
+function condition(days, biorhythm, birthday, today){
 	var CON = new Array();
 	var DATES = new Array();
-	var dayOfMonth = birthday.getDate();
-	for(var i = 0; i < days+16; i++){
-		CON[i] = (Math.sin((i * Math.PI) / biorhythm*2));
-		DATES[i] = birthday.valueOf()+(86400000*i);
+	//var dayOfMonth = birthday.getDate();
+	for(var i = 0; i < 32; i++){
+		CON[i] = (Math.sin(((days-16+i) * Math.PI) / biorhythm*2));
+		DATES[i] = (today.valueOf()-(86400000*16))+(86400000*i);
 	}
 	var line = new Array();
-	
 	var d;
 	var c;
+
 	for (var i = 0; i < 32; i++){
-		d = new Date(DATES[days-16+i]);
+		d = new Date(DATES[i]);
 		d = (d.getFullYear() + "-" + (d.getMonth() + 1) + "-" + d.getDate());
-		c = CON[days-16+i];
+		c = CON[i];
 		var nazwa = "line_"+i;
 		var nazwa = new Array();
 		nazwa[0] = d;
@@ -127,9 +127,9 @@ $(document).ready(function(){
 			$(".graph").show();
 
 			birthday = new Date($(".birthDay").val());
-			var phyLine = condition(days(birthday), phy, birthday),
-				menLine = condition(days(birthday), men, birthday),
-				intLine = condition(days(birthday), int, birthday);
+			var phyLine = condition(days(birthday), phy, birthday, todayDate),
+				menLine = condition(days(birthday), men, birthday, todayDate),
+				intLine = condition(days(birthday), int, birthday, todayDate);
 				console.log(days(birthday));
 			drawChart(phyLine, menLine, intLine, todayDate);
 			chartPercentageShow(chartPercentage(days(birthday), phy));
