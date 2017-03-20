@@ -36,14 +36,16 @@
 
     <div class="container graph">
       <div id="chart" class="jqplot-target"></div>
-      <div class="col-md-1"></div>
-      <div class="col-md-5 legend">
-        <span class="glyphicon glyphicon-stop legend-red" aria-hidden="true"> Physical condition</span><br>
-        <span class="glyphicon glyphicon-stop legend-green" aria-hidden="true"> Mental condition</span><br>
-        <span class="glyphicon glyphicon-stop legend-blue" aria-hidden="true"> Intelligence condition</span><br>
+      <div class="col-md-2 col-sm-0 col-xs-0"></div>
+      <div class="col-md-4 legend col-sm-6 col-xs-6">
+        <p><span class="glyphicon glyphicon-stop legend-red" aria-hidden="true"> Physical condition</span></p>
+        <p><span class="glyphicon glyphicon-stop legend-green" aria-hidden="true"> Mental condition</span></p>
+        <p><span class="glyphicon glyphicon-stop legend-blue" aria-hidden="true"> Intelligence condition</span></p>
       </div>        
-      <div class="col-md-5"></div>
-      <div class="col-md-1"></div>
+      <div class="col-md-4 legend-percentage">
+        <div id="chartPercentage"></div>
+      </div>
+      <div class="col-md-2 col-sm-6 col-xs-6"></div>
     </div>
 
     <script type="text/javascript" src="js/script.js"></script>

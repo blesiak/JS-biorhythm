@@ -31,7 +31,6 @@ function condition(days, biorhythm, birthday){
 function drawChart(phy, men, int, today){
   var axis0Date0 = new Date(today-16*86400000);
   var axis0Date1 = new Date(axis0Date0.valueOf()+31*86400000);
-      console.log(axis0Date0.toDateString()+",,,,,,,,, "+axis0Date1.toDateString());
   var phyLine=phy;
   var menLine=men;
   var intLine=int;
@@ -54,7 +53,7 @@ function drawChart(phy, men, int, today){
                 showHighlight: false,
                 rendererOptions: {
                     barWidth: 10,
-                    barPadding: -15,
+                    barPadding: -5,
                     barMargin: 0,
                     highlightMouseOver: false
                 },
@@ -97,6 +96,18 @@ function drawChart(phy, men, int, today){
         },
     });
 }
+function chartPercentage(days, biorhythm){
+	var condition = (Math.sin((days * Math.PI) / biorhythm*2));
+	return Math.round(condition*100);
+}
+function chartPercentageShow(chartPercentage){
+	var chartPercentage = chartPercentage;
+	if (chartPercentage >= 0){
+		$("#chartPercentage").append('<p class="legend-green">'+chartPercentage+'%</p>');
+	} else {
+		$("#chartPercentage").append('<p class="legend-red">'+chartPercentage+'%</p>');
+	}
+}
 
 $(document).ready(function(){
 	$(".graph").hide();
@@ -104,23 +115,26 @@ $(document).ready(function(){
 	var phy = 23.00,
 		men = 28.00,
 		int = 33.00;
-	console.log(todayDate);
 	var birthday;
 	$("#birthdayPicker").birthdayPicker();
 	$("#checkDate").click(function(){
 		if($(".birthDay").val() != ""){
 			$("#error").html("");
 			$("#chart").remove();
+			$("#chartPercentage").remove();
 			$(".graph").prepend('<div id="chart" class="jqplot-target"></div>');
+			$(".legend-percentage").prepend('<div id="chartPercentage"></div>');
 			$(".graph").show();
+
 			birthday = new Date($(".birthDay").val());
 			var phyLine = condition(days(birthday), phy, birthday),
 				menLine = condition(days(birthday), men, birthday),
 				intLine = condition(days(birthday), int, birthday);
 				console.log(days(birthday));
 			drawChart(phyLine, menLine, intLine, todayDate);
-			//hidden date_picker 
-			//start chart
+			chartPercentageShow(chartPercentage(days(birthday), phy));
+			chartPercentageShow(chartPercentage(days(birthday), men));
+			chartPercentageShow(chartPercentage(days(birthday), int));
 		} else {
 			$("#error").css("color", "red");
 			$("#error").html("You must enter a full date");
